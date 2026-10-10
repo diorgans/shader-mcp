@@ -6,6 +6,22 @@ Ask Claude *"make me a moody synthwave background for my portfolio"* and it brow
 
 It's the tool-use companion to [Prompt-to-Shader](https://github.com/diorgans/prompt-to-shader) ([live](https://prompt-to-shader.vercel.app/)): the same catalog and validator, exposed so any MCP-capable assistant can drive them.
 
+## See it in action
+
+Asked in Claude Desktop: *"Design a shader background for a modern marketing agency website. Show me a preview link and the React code."*
+
+**1. Claude calls the tools.** It browses the catalog, reads the settings it needs, then validates its scene with `create_scene`:
+
+![Claude Desktop showing "Using Shader mcp: Create scene"](docs/2-tool-call.jpg)
+
+**2. It explains the design and hands over a preview link and code** (here, for an earlier jazz-bar request):
+
+![Claude's answer describing the "Late Set Amber Haze" scene with a live preview link](docs/1-claude-answer.jpg)
+
+**3. The preview link opens the scene live** in the [Prompt-to-Shader](https://prompt-to-shader.vercel.app/) app, ready to tweak:
+
+![The "Signal Through Glass" scene rendered live: indigo, coral and lime mesh gradient behind fluted glass](docs/3-live-preview.jpg)
+
 ## Tools
 
 | Tool | What it does |
