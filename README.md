@@ -37,15 +37,10 @@ All tools are read-only and run locally. The server never calls an AI model or t
 
 Requires Node 20+.
 
-```bash
-git clone https://github.com/diorgans/shader-mcp && cd shader-mcp
-npm install && npm run build
-```
-
 **Claude Code**
 
 ```bash
-claude mcp add --scope user shader-mcp -- node /absolute/path/to/shader-mcp/dist/index.js
+claude mcp add --scope user shader-mcp -- npx -y shader-mcp
 ```
 
 **Claude Desktop**: add this to `claude_desktop_config.json` (Settings → Developer → Edit Config), then restart Claude:
@@ -54,12 +49,16 @@ claude mcp add --scope user shader-mcp -- node /absolute/path/to/shader-mcp/dist
 {
   "mcpServers": {
     "shader-mcp": {
-      "command": "node",
-      "args": ["/absolute/path/to/shader-mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "shader-mcp"]
     }
   }
 }
 ```
+
+**From source**: `git clone https://github.com/diorgans/shader-mcp && cd shader-mcp && npm install && npm run build`, then point your client at `node /absolute/path/to/shader-mcp/dist/index.js`.
+
+**Agent skill (optional)**: [`skill/shader-scenes/SKILL.md`](skill/shader-scenes/SKILL.md) tells the agent when to reach for these tools and how to build a good scene. For Claude Code, copy the `skill/shader-scenes` folder into `~/.claude/skills/`.
 
 Set `SHADER_PREVIEW_URL` in the server's environment to point previews at your own deployment of Prompt-to-Shader.
 
